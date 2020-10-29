@@ -1,0 +1,252 @@
+{
+  "List": [
+    {
+      "Title": "User A",
+      "User": 0,
+      "SetPosition": "true",
+      "Position": [ -0.459279, 1.351356, 0.9822075 ],
+      "Rotation": [ -21.876, 46.684, -0.427 ],
+      "Scale": [ 0.8, 0.8, 0.8 ],
+      "Type": "USERPANEL",
+      "List": [
+        {
+          "Name": "Print Brouchure",
+          "Description": "Before your first meeting you need to print some documents ",
+          "Clickable": true,
+          "Options": [
+            {
+              "Name": "Menu Printing",
+              "Description": "printing shop",
+              "Lng": -73.9854698985268, 
+              "Lat": 40.7483551104904,
+              "Type": 0
+            },
+            {
+              "Name": "iDesign Digital Printing",
+              "Description": "printing shop",
+              "Lng": -73.9846485321931 ,
+              "Lat": 40.755668776125,
+              "Type": 0
+            },
+            {
+              "Name": "Staples Print & Marketing Services",
+              "Description": "printing shop",
+              "Lng": -73.9925730338501,
+              "Lat":  40.7513730543488,
+              "Type": 0
+            },
+            {
+              "Name": "Big Apple Copy Center",
+              "Description": "printing shop",
+              "Lng": -73.9775895921834,
+              "Lat": 40.7509500584711,
+              "Type": 0
+            }
+          ],
+          "TimeLocked": false,
+          "Duration":1800
+        },
+        {
+          "Name": "Lunch",
+          "Description": "At a certain point you will have to eat somenthing and you have received few advices which one works best ?",
+          "Clickable": true,
+          "Options": [
+            {
+              "Name": "L'Artusi",
+              "Description": "refined italian fare",
+              "Lng": -73.9990002691654, 
+              "Lat": 40.7452304962205,
+              "Type": 2
+            },
+            {
+              "Name": "Freemans",
+              "Description": "hip hideways serving american fare",
+              "Lng": -73.9730790033233,
+              "Lat": 40.7278064969106,
+              "Type": 2
+            },
+            {
+              "Name": "Wo-hop",
+              "Description": "Long running chinese eatery,open late",
+              "Lng": -73.9727229121097,
+              "Lat":  40.7429429270543,
+              "Type": 2
+            },
+            {
+              "Name": "Raclette",
+              "Description": "Casually hip cheese-centric restaurant",
+              "Lng": -73.9863099198162,
+              "Lat": 40.7423623087957,
+              "Type": 2
+            },
+            {
+              "Name": "Buddakan",
+              "Description": "Splashy Asian eatery",
+              "Lng": -74.0025450052939,
+              "Lat": 40.7433955806278,
+              "Type": 2
+            }
+          ],
+          "TimeLocked": false,
+          "Duration": 3600
+        },
+        {
+          "Name": "Buy New Mac laptop",
+          "Description": "Finally your supervisor give you the budget to buy that new laptop in US laptop are cheaper and you can also claim taxes back, as soon as ypu have a chance head to the closest apple store",
+          "Clickable": true,
+          "Options": [
+            {
+              "Name": "Apple store West 14th Street",
+              "Description": "",
+              "Lng": -73.9955376749612, 
+              "Lat": 40.7453165590901,
+              "Type": 5
+            },
+            {
+              "Name": "Apple store SoHo",
+              "Description": "",
+              "Lng": -73.9966206542382,
+              "Lat": 40.7586641008501,
+              "Type": 5
+            },
+            {
+              "Name": "Apple World Trade Center",
+              "Description": "",
+              "Lng": -73.9776260248335,
+              "Lat": 40.7590922871651,
+              "Type": 5
+            }
+          ],
+          "TimeLocked": false,
+          "Duration": 1800
+        }
+      ]
+    },
+    {
+      "Title": "User B",
+      "User": 1,
+      "SetPosition": "true",
+      "Position": [ 0.07999998, 1.65, 1.5 ],
+      "Rotation": [ -21.876, 46.684, -0.427 ],
+      "Scale": [ 0.8, 0.8, 0.8 ],
+      "Type": 0,
+      "List": [
+        {
+          "Name": "Buy power plug adaptor ",
+          "Description": "Before your first meeting you need to buy a power plug adaptor as you forgot yours at home",
+          "Clickable": true,
+          "Options": [
+            {
+              "Name": "Advanced Computer Systems",
+              "Description": "Electronic store",
+              "Lng": -74.0001852174253,
+              "Lat": 40.7257656104305,
+              "Type": 3
+            },
+            {
+              "Name": "xCubicle",
+              "Description": "Electronic store",
+              "Lng":  -73.9861580692234 ,
+              "Lat": 40.7299650729869,
+              "Type": 3
+            },
+            {
+              "Name": "Microtech Computer Systems Inc",
+              "Description": "Electronic store",
+              "Lng": -73.977436001324,
+              "Lat": 40.7394148716074,
+              "Type": 3
+            },
+            {
+              "Name": "Ciamara",
+              "Description": "Electronic store",
+              "Lng": -73.9964962734294, 
+              "Lat":40.7539711973,
+              "Type": 3
+            }
+          ],
+          "TimeLocked": false,
+          "Duration": 600
+        },
+        {
+          "Name": "Vserve",
+          "Description": "you agree to present your secure payment framework to this agency make sure you will be on time",
+          "Clickable": true,
+          "Options": [
+            {
+              "Name": "Vserve Ebusiness Solutions",
+              "Description": "Ecommerce company",
+              "Lng": -73.967839138605,
+              "Lat": 40.7583510229968,
+              "Type": 4
+            }
+          ],
+          "TimeLocked": true,
+          "TimeInSeconds": 50400,
+          "Duration": 7200
+        },
+        {
+          "Name": "Cloudify",
+          "Description": "cloudify could be a potential client, go present and be on time",
+          "Clickable": true,
+          "Options": [
+            {
+              "Name": "Cloudify.com",
+              "Description": "Ecommerce company",
+              "Lng": -73.9927145,
+              "Lat": 40.7328122,
+              "Type": 4
+            }
+          ],
+          "TimeLocked": true,
+          "TimeInSeconds": 39660,
+          "Duration": 7200
+        }, 
+        {
+          "Name": "Airport",
+          "Description": "Your flight is at 6 pm, don't loose the flight !!",
+          "Clickable": true,
+          "Options": [
+            {
+              "Name": "La Guardia",
+              "Description": "Airport",
+              "Lng": -73.87189837755841,
+              "Lat": 40.77458285725081,
+              "Type": 6
+            }
+          ],
+          "TimeLocked": true,
+          "TimeInSeconds": 59400,
+          "Duration": 0
+        }
+      ]
+    },
+    {
+      "Title": "Task Construction",
+      "SetPosition": "true",
+      "Position": [ 1.08, 1.79, -0.34],
+      "Rotation": [ -21.876, 46.684, -0.427 ],
+      "Scale": [ 0.8, 0.8, 0.8 ],
+      "Type": 1,
+      "StartTime":32400,
+      "List": [
+        {
+          "Name": "Union Square Hotel",
+          "Description": "This is the hotel which has been booked for you by the company",
+          "Clickable": false,
+          "Options": [
+            {
+              "Name": "Union Square",
+              "Description": "Electronic store",
+              "Lng": -73.9886263,
+              "Lat": 40.7364874,
+              "Type": 1
+            }
+          ],
+          "TimeLocked": false,
+          "TimeInSeconds": 0,
+          "Duration": 0
+        }]
+    }
+  ]
+}
