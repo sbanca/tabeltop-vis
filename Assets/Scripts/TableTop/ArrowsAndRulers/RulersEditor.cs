@@ -28,6 +28,11 @@ namespace TableTop
 
             serializedObject.Update();
 
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("map"), true);
+
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("RangeticksX"), true);
+
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("RangeticksY"), true);
 
 
             if (GUILayout.Button("Generate "))
