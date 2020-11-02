@@ -62,7 +62,8 @@ namespace TableTop
     {
 
         LETTERS = 0,
-        NUMBERS = 1
+        NUMBERS = 1,
+        VALUE = 2,
 
     }
 

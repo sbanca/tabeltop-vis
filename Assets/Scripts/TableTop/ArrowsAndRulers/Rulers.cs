@@ -61,7 +61,7 @@ namespace TableTop
                 RulerCenter = new Vector3(mapbounds.center.x, 0f, size.z + rulerdistance);
                 VisibilityRectagle = new Rect(size.x, size.z, size.z, size.w);
             }
-            CreateRuler("ruler-top", 0, RangeticksX, TicksnumberX, mapbounds.size.x, Vector3.right, RulerCenter, VisibilityRectagle, RulerCoordinateType.LETTERS, RulerCoordinatePlacement.ONTHICKS);
+            CreateRuler("ruler-top", 0, RangeticksX, TicksnumberX, mapbounds.size.x, Vector3.right, RulerCenter, VisibilityRectagle, RulerCoordinateType.VALUE, RulerCoordinatePlacement.ONTHICKS);
 
             // X Bottom ruler 
             RulerCenter = new Vector3(mapbounds.center.x, 0f, mapbounds.center.z - (mapbounds.size.z / 2));
@@ -70,7 +70,7 @@ namespace TableTop
                 RulerCenter = new Vector3(mapbounds.center.x, 0f, size.y - rulerdistance);
                 VisibilityRectagle = new Rect(size.x, -size.z, size.z, size.w);
             }
-            CreateRuler("ruler-bottom", 1, RangeticksX, TicksnumberX, mapbounds.size.x, Vector3.left, RulerCenter, VisibilityRectagle, RulerCoordinateType.LETTERS, RulerCoordinatePlacement.ONTHICKS);
+            CreateRuler("ruler-bottom", 1, RangeticksX, TicksnumberX, mapbounds.size.x, Vector3.left, RulerCenter, VisibilityRectagle, RulerCoordinateType.VALUE, RulerCoordinatePlacement.ONTHICKS);
 
             // Z left ruler 
             RulerCenter = new Vector3(mapbounds.center.x + (mapbounds.size.x / 2), 0f, mapbounds.center.z);
@@ -79,7 +79,7 @@ namespace TableTop
                 RulerCenter = new Vector3(size.w + rulerdistance, 0f, mapbounds.center.z);
                 VisibilityRectagle = new Rect(size.w, size.y, size.z, size.w);
             }
-            CreateRuler("ruler-right", 2, RangeticksY, TicksnumberY, mapbounds.size.z, Vector3.back, RulerCenter, VisibilityRectagle, RulerCoordinateType.NUMBERS, RulerCoordinatePlacement.ONTHICKS);
+            CreateRuler("ruler-right", 2, RangeticksY, TicksnumberY, mapbounds.size.z, Vector3.back, RulerCenter, VisibilityRectagle, RulerCoordinateType.VALUE, RulerCoordinatePlacement.ONTHICKS);
 
             // Z Right ruler 
             RulerCenter = new Vector3(mapbounds.center.x - (mapbounds.size.x / 2), 0f, mapbounds.center.z);
@@ -88,7 +88,7 @@ namespace TableTop
                 RulerCenter = new Vector3(size.x - rulerdistance, 0f, mapbounds.center.z);
                 VisibilityRectagle = new Rect(-size.w, size.y, size.z, size.w);
             }
-            CreateRuler("ruler-left", 3, RangeticksY, TicksnumberY, mapbounds.size.z, Vector3.forward, RulerCenter, VisibilityRectagle, RulerCoordinateType.NUMBERS, RulerCoordinatePlacement.ONTHICKS);
+            CreateRuler("ruler-left", 3, RangeticksY, TicksnumberY, mapbounds.size.z, Vector3.forward, RulerCenter, VisibilityRectagle, RulerCoordinateType.VALUE, RulerCoordinatePlacement.ONTHICKS);
 
         }
 

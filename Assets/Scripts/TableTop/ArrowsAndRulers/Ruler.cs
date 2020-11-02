@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -251,8 +252,6 @@ namespace TableTop
 
         }
 
-
-
         private void CreateCoordinates()
         {
 
@@ -271,44 +270,85 @@ namespace TableTop
             Vector3 start = new Vector3 { };
             if (RulerCoordinatePlacement.ONTHICKS == placement) start = gameObject.transform.position - (direction * (length / 2));
             else if (RulerCoordinatePlacement.BETWEENTICKS == placement)  start = gameObject.transform.position - (direction * (length / 2)) + stepvector / 2;
-            
 
-            for (int i=0;i< coordinatesNumber; i++)
+
+            if (RulerCoordinateType.LETTERS == type || RulerCoordinateType.NUMBERS == type)
             {
+                for (int i = 0; i < coordinatesNumber; i++)
+                {
 
-                //loadprefab
-                string folder = RulerCoordinateType.LETTERS == type ?"letters/":"numbers/";
-                GameObject prefab = loadPrefabFromResoureces(folder+CoordArray[i]);
+                    //loadprefab
+                    string folder = RulerCoordinateType.LETTERS == type ? "letters/" : "numbers/";
+                    GameObject prefab = loadPrefabFromResoureces(folder + CoordArray[i]);
 
-                //instantiate
-                GameObject coordObject = Instantiate(prefab);
-                coordObject.name = CoordArray[i];
-                coordObject.transform.parent = gameObject.transform;
+                    //instantiate
+                    GameObject coordObject = Instantiate(prefab);
+                    coordObject.name = CoordArray[i];
+                    coordObject.transform.parent = gameObject.transform;
 
-                //material
-                Renderer r = coordObject.GetComponentInChildren<MeshRenderer>();
-                Material m = Resources.Load("Materials/" + name, typeof(Material)) as Material;
-                r.material = m;
+                    //material
+                    Renderer r = coordObject.GetComponentInChildren<MeshRenderer>();
+                    Material m = Resources.Load("Materials/" + name, typeof(Material)) as Material;
+                    r.material = m;
 
-                //rendered boundaries
-                r.gameObject.transform.position = r.transform.position - r.bounds.center;
-                //if (OrientCoordinatesToCamera.Instance == null) getOrientCoordinateInstance();
-                //OrientCoordinatesToCamera.Instance.objects.Add(r.gameObject);
+                    //rendered boundaries
+                    r.gameObject.transform.position = r.transform.position - r.bounds.center;
+                    //if (OrientCoordinatesToCamera.Instance == null) getOrientCoordinateInstance();
+                    //OrientCoordinatesToCamera.Instance.objects.Add(r.gameObject);
 
-                //scale ticks 
-                Vector3 scale = coordObject.transform.localScale;
-                scale.Set(0.1f, 0.1f, 0.1f);
-                coordObject.transform.localScale = scale;
-                coordObject.transform.Rotate(new Vector3(0f,180f,0f));
+                    //scale ticks 
+                    Vector3 scale = coordObject.transform.localScale;
+                    scale.Set(0.1f, 0.1f, 0.1f);
+                    coordObject.transform.localScale = scale;
+                    coordObject.transform.Rotate(new Vector3(0f, 180f, 0f));
 
-                //position           
-                coordObject.transform.position = start + distance + (oppositeDirection * 0.075f);
-                distance += stepvector;
-        
-                //add to the list 
-                ticks.Add(coordObject);
+                    //position           
+                    coordObject.transform.position = start + distance + (oppositeDirection * 0.075f);
+                    distance += stepvector;
 
+                    //add to the list 
+                    ticks.Add(coordObject);
+
+                }
             }
+            else if (RulerCoordinateType.VALUE == type) {
+
+                for (int i = 0; i < coordinatesNumber; i++)
+                {
+                    //loadprefab            
+                    GameObject prefab = loadPrefabFromResoureces("TextMeshProLabel");
+
+                    //instantiate
+                    GameObject coordObject = Instantiate(prefab);
+                    coordObject.name = CoordArray[i];
+                    coordObject.transform.parent = gameObject.transform;
+
+                    TextMeshPro tmp = coordObject.GetComponent<TextMeshPro>();
+                    tmp.text= CoordArray[i].ToString();
+
+                    if (direction == Vector3.right)
+                    {
+                        coordObject.transform.Rotate(new Vector3(0f, 0f, -90f));
+                        tmp.alignment = TextAlignmentOptions.Right;
+                    }
+                    else if (direction == Vector3.left)
+                    {
+                        coordObject.transform.Rotate(new Vector3(0f, 0f, -90f));
+                        tmp.alignment = TextAlignmentOptions.Left;
+                    }
+                    else if (direction == Vector3.back) tmp.alignment = TextAlignmentOptions.Left;
+                    else if (direction == Vector3.forward) tmp.alignment = TextAlignmentOptions.Right;
+
+                    //position           
+                    coordObject.transform.position = start + distance + (oppositeDirection * 0.075f);
+                    distance += stepvector;
+
+                    //add to the list 
+                    ticks.Add(coordObject);
+                }
+            }
+
+
 
         }
 
@@ -343,11 +383,21 @@ namespace TableTop
 
             string[] Numbers = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21" };
 
-
             string[] array = new string[coordinatesNumber];
 
+            float count = 0f;
 
-            for (int i = 0; i < coordinatesNumber; i++) array[i] = type == RulerCoordinateType.LETTERS ? Alphabet[i] : Numbers[i];
+            for (int i = 0; i < coordinatesNumber; i++)
+            {
+
+                if (type == RulerCoordinateType.LETTERS) array[i] = Alphabet[i];
+                else if (type == RulerCoordinateType.NUMBERS) array[i] = Numbers[i];
+                else if (type == RulerCoordinateType.VALUE) {                  
+                    array[i] = Math.Round(count,1).ToString();
+                    count += TicksStep();
+                }
+
+            }
 
             return array;
         }
