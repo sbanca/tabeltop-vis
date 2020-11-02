@@ -66,5 +66,14 @@ namespace TableTop
 
     }
 
+    public enum RulerCoordinatePlacement
+    {
+
+        ONTHICKS = 0,
+        BETWEENTICKS = 1
+
+    }
+
+
 
 }

@@ -30,8 +30,8 @@ namespace TableTop
 
         [SerializeField]
 
-        private int ticksNumber = 5;
-        private int coordinatesNumber=4;
+        private int ticksNumber;
+        private int coordinatesNumber;
         public int Ticksnumber
         {
 
@@ -42,7 +42,7 @@ namespace TableTop
                 {
 
                     ticksNumber = value;
-                    coordinatesNumber = value - 1;
+                  
                 }
             }
 
@@ -112,8 +112,9 @@ namespace TableTop
 
         public Rect VisibilityRectagle;
 
-
         public RulerCoordinateType type;
+
+        public RulerCoordinatePlacement placement;
 
         //private variables 
 
@@ -250,8 +251,13 @@ namespace TableTop
 
         }
 
+
+
         private void CreateCoordinates()
         {
+
+            coordinatesNumber = RulerCoordinatePlacement.ONTHICKS == placement ? ticksNumber : ticksNumber - 1;
+
 
             string[] CoordArray = CoordinatesArray();
 
@@ -261,8 +267,10 @@ namespace TableTop
             Vector3 stepvector = direction * step;
             Vector3 distance = new Vector3();
 
-            Vector3 start = gameObject.transform.position - (direction * (length / 2)) + stepvector/2;
-
+            //start
+            Vector3 start = new Vector3 { };
+            if (RulerCoordinatePlacement.ONTHICKS == placement) start = gameObject.transform.position - (direction * (length / 2));
+            else if (RulerCoordinatePlacement.BETWEENTICKS == placement)  start = gameObject.transform.position - (direction * (length / 2)) + stepvector / 2;
             
 
             for (int i=0;i< coordinatesNumber; i++)

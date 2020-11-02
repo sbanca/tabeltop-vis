@@ -12,9 +12,11 @@ namespace TableTop
         public Vector2 RangeticksX = new Vector2(0f,10f);
 
         public Vector2 RangeticksY = new Vector2(10f,20f);
+        
+        public Map map;
 
 
-        //priavet variables
+        //private variables
 
         private Bounds TileBounds;
 
@@ -24,11 +26,9 @@ namespace TableTop
 
         public GameObject[] rulers = new GameObject[4];
 
-
-
         private GameObject MapUIParent;
 
-        public Map map;
+        
 
         //methods
 
@@ -61,7 +61,7 @@ namespace TableTop
                 RulerCenter = new Vector3(mapbounds.center.x, 0f, size.z + rulerdistance);
                 VisibilityRectagle = new Rect(size.x, size.z, size.z, size.w);
             }
-            CreateRuler("ruler-top", 0, RangeticksX, TicksnumberX, mapbounds.size.x, Vector3.right, RulerCenter, VisibilityRectagle, RulerCoordinateType.LETTERS);
+            CreateRuler("ruler-top", 0, RangeticksX, TicksnumberX, mapbounds.size.x, Vector3.right, RulerCenter, VisibilityRectagle, RulerCoordinateType.LETTERS, RulerCoordinatePlacement.ONTHICKS);
 
             // X Bottom ruler 
             RulerCenter = new Vector3(mapbounds.center.x, 0f, mapbounds.center.z - (mapbounds.size.z / 2));
@@ -70,8 +70,7 @@ namespace TableTop
                 RulerCenter = new Vector3(mapbounds.center.x, 0f, size.y - rulerdistance);
                 VisibilityRectagle = new Rect(size.x, -size.z, size.z, size.w);
             }
-            CreateRuler("ruler-bottom", 1, RangeticksX, TicksnumberX, mapbounds.size.x, Vector3.left, RulerCenter, VisibilityRectagle, RulerCoordinateType.LETTERS);
-
+            CreateRuler("ruler-bottom", 1, RangeticksX, TicksnumberX, mapbounds.size.x, Vector3.left, RulerCenter, VisibilityRectagle, RulerCoordinateType.LETTERS, RulerCoordinatePlacement.ONTHICKS);
 
             // Z left ruler 
             RulerCenter = new Vector3(mapbounds.center.x + (mapbounds.size.x / 2), 0f, mapbounds.center.z);
@@ -80,7 +79,7 @@ namespace TableTop
                 RulerCenter = new Vector3(size.w + rulerdistance, 0f, mapbounds.center.z);
                 VisibilityRectagle = new Rect(size.w, size.y, size.z, size.w);
             }
-            CreateRuler("ruler-right", 2, RangeticksY, TicksnumberY, mapbounds.size.z, Vector3.back, RulerCenter, VisibilityRectagle, RulerCoordinateType.NUMBERS);
+            CreateRuler("ruler-right", 2, RangeticksY, TicksnumberY, mapbounds.size.z, Vector3.back, RulerCenter, VisibilityRectagle, RulerCoordinateType.NUMBERS, RulerCoordinatePlacement.ONTHICKS);
 
             // Z Right ruler 
             RulerCenter = new Vector3(mapbounds.center.x - (mapbounds.size.x / 2), 0f, mapbounds.center.z);
@@ -89,7 +88,7 @@ namespace TableTop
                 RulerCenter = new Vector3(size.x - rulerdistance, 0f, mapbounds.center.z);
                 VisibilityRectagle = new Rect(-size.w, size.y, size.z, size.w);
             }
-            CreateRuler("ruler-left", 3, RangeticksY, TicksnumberY, mapbounds.size.z, Vector3.forward, RulerCenter, VisibilityRectagle, RulerCoordinateType.NUMBERS);
+            CreateRuler("ruler-left", 3, RangeticksY, TicksnumberY, mapbounds.size.z, Vector3.forward, RulerCenter, VisibilityRectagle, RulerCoordinateType.NUMBERS, RulerCoordinatePlacement.ONTHICKS);
 
         }
 
@@ -110,7 +109,7 @@ namespace TableTop
 
         }
 
-        private void CreateRuler(string name, int number, Vector2 Rangeticks, int Ticksnumber, float Length, Vector3 Direction, Vector3 Center, Rect VisibilityRect, RulerCoordinateType type)
+        private void CreateRuler(string name, int number, Vector2 Rangeticks, int Ticksnumber, float Length, Vector3 Direction, Vector3 Center, Rect VisibilityRect, RulerCoordinateType type, RulerCoordinatePlacement placement)
         {
 
             rulers[number] = new GameObject();
@@ -134,6 +133,8 @@ namespace TableTop
             ruler.VisibilityRectagle = VisibilityRect;
 
             ruler.type = type;
+
+            ruler.placement = placement;
 
             ruler.Generate();
 
@@ -163,8 +164,6 @@ namespace TableTop
                 MapUIParent.AddComponent<OrientCoordinatesToCamera>();
             }
         }
-
-       
 
     }
 }
